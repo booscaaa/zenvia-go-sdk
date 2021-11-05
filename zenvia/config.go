@@ -19,8 +19,6 @@ type HTTPClient interface {
 
 type ZenviaAccess struct {
 	api      string
-	from     string
-	to       string
 	apiToken string
 }
 
@@ -36,18 +34,6 @@ func (zenviaAccess ZenviaAccess) ApiToken(apiToken string) ZenviaAccess {
 	return zenviaAccess
 }
 
-func (zenviaAccess ZenviaAccess) From(from string) ZenviaAccess {
-	zenviaAccess.from = from
-
-	return zenviaAccess
-}
-
-func (zenviaAccess ZenviaAccess) To(to string) ZenviaAccess {
-	zenviaAccess.to = to
-
-	return zenviaAccess
-}
-
 func (zenviaAccess ZenviaAccess) Sandbox() ZenviaAccess {
 	zenviaAccess.api = SANDBOX
 
@@ -55,5 +41,5 @@ func (zenviaAccess ZenviaAccess) Sandbox() ZenviaAccess {
 }
 
 type ZenviaAccessRepository interface {
-	SendSMS(message string)
+	SendSingleSMS(from string, to string, message string)
 }

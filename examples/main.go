@@ -18,14 +18,13 @@ func main() {
 	authToken := viper.GetString("zenvia.auth_token")
 
 	// Configure Sandbox access into Zenvia api
-	// From and To with this format: PREFIX DDD NUMBER WITHOUT MASK
+
 	zenviaAccess := zenvia.ZenviaConfig().
 		ApiToken(authToken).
-		From("5554999999999").
-		To("5554999999999").
 		Sandbox()
 
 	zenviaSdk := zenvia.Instance(zenviaAccess)
 
-	zenviaSdk.SendSMS("Message")
+	// From and To with this format: PREFIX DDD NUMBER WITHOUT MASK
+	zenviaSdk.SendSingleSMS("5554999999999", "5554999999999", "Message")
 }

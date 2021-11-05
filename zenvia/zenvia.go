@@ -22,11 +22,11 @@ func Instance(access ZenviaAccess) ZenviaAccessRepository {
 	}
 }
 
-func (zenvia zenviaAccess) SendSMS(message string) {
+func (zenvia zenviaAccess) SendSingleSMS(from string, to string, message string) {
 	urlString := zenvia.access.api + "/v2/channels/sms/messages"
 
 	content := model.CreateSMSContent(message)
-	smsPayload := model.CreateSingleSMSPayload(zenvia.access.from, zenvia.access.to, content)
+	smsPayload := model.CreateSingleSMSPayload(from, to, content)
 
 	payload, _ := json.Marshal(smsPayload)
 
