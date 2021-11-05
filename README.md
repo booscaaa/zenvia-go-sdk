@@ -24,13 +24,7 @@ Connect with me at [LinkedIn](https://www.linkedin.com/in/booscaaa/).
 
 ## Functionalities
 
-- Get authentication token
-- Create tokenized card
-- Get plans for signatures
-- Get plan by ID
-- Create plan
-- Disable plan by ID
-- Enable plan by ID
+- Send SMS
 
 <br>
 
